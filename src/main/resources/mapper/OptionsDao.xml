@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kgc.tzl.touprovider.dao.OptionsDao">
+
+    <!--根据主题ID单查对应主题的选项信息 -->
+    <select id="queryBySubID" resultType="com.kgc.tzl.bean.Options">
+
+        select * from options where id=#{id}
+    </select>
+
+    <!--根据选项ID修改对应主题的选项信息 -->
+    <update id="updateByVote" parameterType="int">
+        update options set vote=vote+1 where oid=#{oid}
+    </update>
+
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kgc.tzl.touprovider.dao.SubjectsDao">
+
+    <!--查看subjects表信息 -->
+    <select id="queryAllSubjects" resultType="com.kgc.tzl.bean.Subjects">
+
+        select * from subjects
+    </select>
+
+    <!--单查subjects信息 -->
+    <select id="queryBySubID" resultType="com.kgc.tzl.bean.Subjects">
+
+        select * from subjects where id=#{id}
+    </select>
+    
+    <!--根据ID修改投票总数-->
+    <update id="updateBytotal" parameterType="int">
+
+        update subjects set totalVotes=totalVotes+1 where id=#{id}
+    </update>
+
+    <!--根据ID修改查看次数-->
+    <update id="updateByviewTime" parameterType="int">
+        update subjects set viewTimes=viewTimes+1 where id=#{id}
+    </update>
+
+
+</mapper>
